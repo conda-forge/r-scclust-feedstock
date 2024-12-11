@@ -1,6 +1,5 @@
 {% set version = '0.2.5' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-scclust
@@ -13,8 +12,7 @@ source:
   sha256: fbb22632b3544d5ee130f077a0d51639ea289793b62ceafddf446a320fd71a09
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -39,7 +37,6 @@ requirements:
     - r-distances
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-distances
 
 test:
